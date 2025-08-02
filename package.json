@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-api-rest",
+  "version": "1.0.0",
+  "description": "Criando API REST com Node.js durante o Ignite da Rocketseat",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasLOrtiz/NodeJS-APIRest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NicolasLOrtiz/NodeJS-APIRest/issues"
+  },
+  "homepage": "https://github.com/NicolasLOrtiz/NodeJS-APIRest#readme",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "fastify": "^5.4.0"
+  }
+}
