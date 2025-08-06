@@ -1,9 +1,12 @@
 import fastify from 'fastify'
+import { dbconfig } from './database'
 
 const app = fastify()
 
-app.get('/hello', () => {
-    return 'Hello World'
+app.get('/hello', async () => {
+    const tables = await dbconfig('sqlite_schema').select('*')
+
+    return tables
 })
 
 app.listen({
