@@ -4,7 +4,8 @@
   "description": "Criando API REST com Node.js durante o Ignite da Rocketseat",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js"
   },
   "repository": {
     "type": "git",
