@@ -4,7 +4,9 @@ import {dbConfig} from './database'
 const app = fastify()
 
 app.get('/hello', async () => {
-    return dbConfig('sqlite_schema').select('*');
+    return await dbConfig('transactions')
+        .where('amount', 1000)
+        .select('*')
 })
 
 app.listen({
