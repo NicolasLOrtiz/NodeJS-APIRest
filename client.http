@@ -1,3 +1,55 @@
+@baseUrl = http://localhost:3333
 
+### GET /hello (rota original)
+GET {{baseUrl}}/hello
 
-GET http://localhost:3333/hello
+###
+# Tasks API
+###
+
+### Criar uma nova tarefa
+# @name create_task
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+    "title": "Aprender Fastify",
+    "description": "Estudar a documentação e criar uma API"
+}
+
+###
+
+### Listar todas as tarefas
+GET {{baseUrl}}/tasks
+
+###
+
+### Buscar tarefas filtrando por título ou descrição
+GET {{baseUrl}}/tasks?title=Aprender
+
+###
+
+### Variável para pegar o ID da primeira tarefa criada
+@taskId = {{create_task.response.body.*.id}}
+# NOTA: Como o Fastify/REST Client do VSCode pode não capturar diretamente de um 201 sem body, 
+# você pode copiar o ID do retorno da rota GET e colar na variável abaixo:
+@manualTaskId = cole-o-id-aqui
+
+### Atualizar uma tarefa
+PUT {{baseUrl}}/tasks/{{manualTaskId}}
+Content-Type: application/json
+
+{
+    "title": "Aprender Fastify e Knex",
+    "description": "API concluída"
+}
+
+###
+
+### Marcar/Desmarcar tarefa como completa
+PATCH {{baseUrl}}/tasks/{{manualTaskId}}/complete
+
+###
+
+### Deletar uma tarefa
+DELETE {{baseUrl}}/tasks/{{manualTaskId}}

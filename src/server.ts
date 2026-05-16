@@ -1,13 +1,11 @@
 import fastify from 'fastify'
-import {dbConfig} from './database'
-import {env} from "./env";
+import { env } from "./env";
+import { tasksRoutes } from './routes/tasks'
 
 const app = fastify()
 
-app.get('/hello', async () => {
-    return await dbConfig('transactions')
-        .where('amount', 1000)
-        .select('*')
+app.register(tasksRoutes, {
+  prefix: 'tasks',
 })
 
 app.listen({
